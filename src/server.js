@@ -1,5 +1,5 @@
 import express from "express";
-import http, { get } from "http";
+import http from "http";
 import { Server } from "socket.io";
 import cors from "cors";
 import { getUser, getUsersInRoom, removeUser, addUser } from "./users/user";
@@ -71,7 +71,9 @@ io.on("connection", (socket) => {
     callback();
   });
 });
-
+app.get("/" , (req, res , next)=>{
+  res.send("welcome to our chat backend")
+})
 // RUNNING THE SERVER
 server.listen(PORT, () => {
   console.log("server is runnign on the port " + PORT);
