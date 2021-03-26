@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 5000;
 app.use(cors());
 const io = new Server(server, {
   cors: {
-    origin: "https://605d3c689e891912877b89c8--h-react-chat.netlify.app/",
+    origin: "*:*",
     methods: ["GET", "POST"],
   },
 });
