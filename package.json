@@ -4,21 +4,31 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1" , 
-     "start" : "node src/server.js"
+    "start": "cross-env NODE_ENV=production && npm run server:prod",
+    "server:prod": "node dist/app.js",
+    "build": "babel src/server.js --out-dir build",
+    "clean": "rimraf dist",
+    "server": "cross-env DEBUG=app nodemon --exec babel-node src/server.js",
+    "dev": "cross-env NODE_ENV=development npm-run-all server",
+    "prod": "npm-run-all clean build"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
+    "cross-env": "^7.0.3",
     "express": "^4.17.1",
     "mongoose": "^5.12.2",
     "socket.io": "^4.0.0"
   },
   "devDependencies": {
+    "@babel/cli": "^7.13.10",
     "@babel/core": "^7.13.10",
     "@babel/node": "^7.13.12",
-    "@babel/preset-env": "^7.13.12"
+    "@babel/preset-env": "^7.13.12",
+    "babel-cli": "^6.26.0",
+    "npm-run-all": "^4.1.5",
+    "rimraf": "^3.0.2"
   }
 }
