@@ -9,7 +9,7 @@ const server = http.createServer(app);
 const PORT = process.env.PORT || 5000;
 const io = new Server(server, {
   cors: {
-    origin: "http://localhost:3000",
+    origin: "https://605d3c689e891912877b89c8--h-react-chat.netlify.app/",
     methods: ["GET", "POST"],
   },
 });
