@@ -14,7 +14,7 @@ app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Methods", "PUT, GET, POST, DELETE, OPTIONS");
   next();
 });
-// app.use(cors());
+app.use(cors());
 const io = new Server(server, {
   cors: {
     origin: "https://605d3c689e891912877b89c8--h-react-chat.netlify.app/",
