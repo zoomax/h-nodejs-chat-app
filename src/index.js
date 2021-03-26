@@ -7,13 +7,15 @@ import { getUser, getUsersInRoom, removeUser, addUser } from "./users/user";
 const app = express();
 const server = http.createServer(app);
 const PORT = process.env.PORT || 5000;
-app.use(cors());
+
 const io = new Server(server, {
   cors: {
-    origin: "*:*",
+    // origin: "https://605d3c689e891912877b89c8--h-react-chat.netlify.app/",
+    // origin: "https://localhost:3000/",
     methods: ["GET", "POST"],
   },
 });
+app.use(cors());
 io.on("connection", (socket) => {
   console.log("you've created a connection with the server");
   // when a new user joins our a room
